@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --radius-lg: 0.75rem;
+  --radius-md: calc(0.75rem - 2px);
+  --radius-sm: calc(0.75rem - 4px);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-blue-deep: #1746D1;
+  --color-brand-blue-vibrant: #3267FF;
+  --color-brand-orange: #FF6B1A;
+  --color-brand-green: #19C96B;
+  --color-brand-green-dark: #10A957;
+  --color-brand-bg-alt: #F4F6FA;
+  --color-brand-text-main: #171A23;
+  --color-brand-text-sub: #626979;
+  --color-brand-border: #DDE2EA;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #FFFFFF;
+  --foreground: #171A23;
+  --card: #FFFFFF;
+  --card-foreground: #171A23;
+  --popover: #FFFFFF;
+  --popover-foreground: #171A23;
+  --primary: #1746D1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4F6FA;
+  --secondary-foreground: #171A23;
+  --muted: #F4F6FA;
+  --muted-foreground: #626979;
+  --accent: #3267FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(60% 0.22 25);
+  --destructive-foreground: oklch(99% 0 0);
+  --border: #DDE2EA;
+  --input: #DDE2EA;
+  --ring: #3267FF;
+}
+
+.dark {
+  --background: #171A23;
+  --foreground: #FFFFFF;
+  --card: #171A23;
+  --card-foreground: #FFFFFF;
+  --popover: #171A23;
+  --popover-foreground: #FFFFFF;
+  --primary: #1746D1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #626979;
+  --secondary-foreground: #FFFFFF;
+  --muted: #626979;
+  --muted-foreground: #DDE2EA;
+  --accent: #3267FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(50% 0.2 25);
+  --destructive-foreground: oklch(98% 0 0);
+  --border: #626979;
+  --input: #626979;
+  --ring: #3267FF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Custom layout utility */
+.section-pad {
+  padding-inline: max(20px, 50% - 180px);
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-inline: max(20px, 50% - 640px);
+  }
+}
+
+/* Pulsating CTA effects */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(23, 70, 209, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(23, 70, 209, 0);
+  }
+}
+
+@keyframes cta-shine {
+  0% {
+    transform: translate(-150%) skew(-20deg);
+  }
+  100% {
+    transform: translate(250%) skew(-20deg);
+  }
+}
+
+.cta-fx {
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: 2.2s ease-in-out infinite cta-pulse;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-fx:hover {
+  transform: scale(1.04);
+}
+
+.cta-fx::after {
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  width: 40%;
+  height: 100%;
+  animation: 2.8s ease-in-out infinite cta-shine;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Custom animations for badges & borders */
+@keyframes border-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-slide {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.animated-badge {
+  background: linear-gradient(90deg, var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .animated-badge {
+    background: linear-gradient(90deg, var(--primary), color-mix(in oklab, var(--primary) 60%, white), var(--primary), color-mix(in oklab, var(--primary) 40%, white), var(--primary));
+  }
+}
+
+.animated-badge {
+  background-size: 200% 100%;
+  animation: 4s linear infinite gradient-slide;
+}
+
+.animated-border {
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::before {
+  content: "";
+  z-index: -1;
+  background: conic-gradient(from 0deg, var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+  position: absolute;
+  inset: -150%;
+  animation: 6s linear infinite border-spin;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .animated-border::before {
+    background: conic-gradient(from 0deg, var(--primary), color-mix(in oklab, var(--primary) 40%, transparent), var(--primary), color-mix(in oklab, var(--primary) 70%, white), var(--primary));
+  }
+}
+
+.animated-border::after {
+  content: "";
+  z-index: -1;
+  background: var(--card);
+  border-radius: inherit;
+  position: absolute;
+  inset: 2px;
+}
+
+/* Custom marquee marquee container */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

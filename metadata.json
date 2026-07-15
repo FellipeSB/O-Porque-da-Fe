@@ -1,0 +1,8 @@
+{
+  "name": "52 Semanas",
+  "description": "Descobrindo o Porquê da Fé - Guia Digital para Pais Cristãos",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
