@@ -16,43 +16,33 @@ interface ScrollAspectImageProps {
 }
 
 function ScrollAspectImage({ id, src, alt }: ScrollAspectImageProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      {
-        rootMargin: "-25% 0px -25% 0px",
-        threshold: 0.1,
-      }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  // Construct optimized paths
+  const baseName = src.substring(0, src.lastIndexOf('.'));
 
   return (
-    <div ref={containerRef} className="w-full overflow-hidden rounded-lg">
-      <img
-        id={id}
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        className={`w-full object-cover rounded-lg shadow-sm border border-brand-border transition-all duration-700 ease-out ${
-          isInView 
-            ? "aspect-square scale-[1.03] border-brand-orange/40" 
-            : "aspect-[3/2] scale-100 hover:aspect-square hover:scale-[1.03] active:aspect-square active:scale-[1.03]"
-        }`}
-      />
+    <div className="w-full overflow-hidden rounded-lg select-none">
+      <picture>
+        <source
+          type="image/avif"
+          srcSet={`${baseName}-400.avif 400w, ${baseName}-800.avif 800w`}
+          sizes="(max-width: 640px) 100vw, 400px"
+        />
+        <source
+          type="image/webp"
+          srcSet={`${baseName}-400.webp 400w, ${baseName}-800.webp 800w`}
+          sizes="(max-width: 640px) 100vw, 400px"
+        />
+        <img
+          id={id}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="400"
+          className="w-full aspect-square object-cover rounded-lg shadow-sm border border-brand-border"
+        />
+      </picture>
     </div>
   );
 }
@@ -199,15 +189,29 @@ export default function App() {
       <section id="hero-section" className="section-pad py-16 md:py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-5xl flex flex-col items-center text-center">
           
-          {/* Main Hero Product Mockup - Updated to JPEG */}
-          <img 
-            id="hero-mockup"
-            src="/images/hero.jpg" 
-            alt="Mockups do Produto Descobrindo o Porquê da Fé" 
-            fetchPriority="high"
-            decoding="sync"
-            className="w-full max-w-[580px] h-auto object-cover rounded-xl shadow-md mb-8 hover:scale-[1.01] transition-transform duration-500"
-          />
+          {/* Main Hero Product Mockup - Fully Optimized with WebP and AVIF Responsive srcset */}
+          <picture className="w-full max-w-[580px] mb-8 block select-none">
+            <source
+              type="image/avif"
+              srcSet="/images/hero-480.avif 480w, /images/hero-768.avif 768w, /images/hero-1200.avif 1200w, /images/hero-1672.avif 1672w"
+              sizes="(max-width: 640px) 100vw, 580px"
+            />
+            <source
+              type="image/webp"
+              srcSet="/images/hero-480.webp 480w, /images/hero-768.webp 768w, /images/hero-1200.webp 1200w, /images/hero-1672.webp 1672w"
+              sizes="(max-width: 640px) 100vw, 580px"
+            />
+            <img 
+              id="hero-mockup"
+              src="/images/hero-fallback.jpg" 
+              alt="Mockups do Produto Descobrindo o Porquê da Fé" 
+              fetchPriority="high"
+              decoding="sync"
+              width="580"
+              height="326"
+              className="w-full h-auto object-cover rounded-xl shadow-md hover:scale-[1.01] transition-transform duration-500"
+            />
+          </picture>
           
           {/* Main Headline */}
           <h1 id="hero-headline" className="text-3xl md:text-5xl font-display font-bold leading-tight tracking-tight text-brand-text-main max-w-4xl">
@@ -224,7 +228,7 @@ export default function App() {
       </section>
 
       {/* Social Proof / Testimonials Section */}
-      <section id="testimonials-section" className="bg-brand-bg-alt section-pad py-16 md:py-20 overflow-hidden border-t border-b border-brand-border">
+      <section id="testimonials-section" className="bg-brand-bg-alt section-pad py-16 md:py-20 overflow-hidden border-t border-b border-brand-border cv-auto">
         <div className="mx-auto max-w-7xl">
           <h2 id="testimonials-title" className="text-center text-xl md:text-3xl font-bold tracking-tight text-brand-text-main leading-tight">
             Veja o que outros pais estão percebendo dentro de casa
@@ -240,7 +244,7 @@ export default function App() {
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-brand-bg-alt to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-brand-bg-alt to-transparent z-10 pointer-events-none"></div>
 
-            <div className="flex w-max gap-6 py-4 animate-marquee">
+            <div className="flex w-max gap-6 py-4 animate-marquee select-none">
               {/* First half of items */}
               {[2, 3, 4, 5, 6, 7, 8].map((num) => (
                 <div 
@@ -248,13 +252,27 @@ export default function App() {
                   id={`testimonial-card-1-${num}`}
                   className="rounded-xl flex items-center justify-center shrink-0 shadow-sm overflow-hidden"
                 >
-                  <img 
-                    src={`/images/depoimento${num}.jpg`} 
-                    alt={`Depoimento ${num}`} 
-                    loading="lazy"
-                    decoding="async"
-                    className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet={`/images/depoimento${num}-320.avif 320w, /images/depoimento${num}-640.avif 640w`}
+                      sizes="(max-width: 640px) 260px, 320px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
+                      sizes="(max-width: 640px) 260px, 320px"
+                    />
+                    <img 
+                      src={`/images/depoimento${num}.jpg`} 
+                      alt={`Depoimento ${num}`} 
+                      loading="lazy"
+                      decoding="async"
+                      width="320"
+                      height="480"
+                      className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
+                    />
+                  </picture>
                 </div>
               ))}
 
@@ -265,13 +283,27 @@ export default function App() {
                   id={`testimonial-card-2-${num}`}
                   className="rounded-xl flex items-center justify-center shrink-0 shadow-sm overflow-hidden"
                 >
-                  <img 
-                    src={`/images/depoimento${num}.jpg`} 
-                    alt={`Depoimento ${num}`} 
-                    loading="lazy"
-                    decoding="async"
-                    className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet={`/images/depoimento${num}-320.avif 320w, /images/depoimento${num}-640.avif 640w`}
+                      sizes="(max-width: 640px) 260px, 320px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
+                      sizes="(max-width: 640px) 260px, 320px"
+                    />
+                    <img 
+                      src={`/images/depoimento${num}.jpg`} 
+                      alt={`Depoimento ${num}`} 
+                      loading="lazy"
+                      decoding="async"
+                      width="320"
+                      height="480"
+                      className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
+                    />
+                  </picture>
                 </div>
               ))}
             </div>
@@ -280,7 +312,7 @@ export default function App() {
       </section>
 
       {/* Deliverables / Modules Section */}
-      <section id="modules-section" className="section-pad py-16 md:py-24 bg-white">
+      <section id="modules-section" className="section-pad py-16 md:py-24 bg-white cv-auto">
         <div className="mx-auto max-w-4xl">
           <h2 id="modules-title" className="text-center text-xl md:text-3xl font-bold tracking-tight text-brand-text-main leading-tight">
             Tudo o que você precisa para conduzir conversas profundas sobre fé
@@ -384,7 +416,7 @@ export default function App() {
       </section>
 
       {/* Bonuses Section */}
-      <section id="bonuses-section" className="bg-brand-bg-alt section-pad py-16 md:py-24 border-t border-b border-brand-border">
+      <section id="bonuses-section" className="bg-brand-bg-alt section-pad py-16 md:py-24 border-t border-b border-brand-border cv-auto">
         <div className="mx-auto max-w-4xl">
           <h2 id="bonuses-title" className="text-center text-xl md:text-3xl font-bold tracking-tight text-brand-text-main leading-tight">
             Na Oferta Completa, você ainda recebe 3 bônus exclusivos
@@ -458,7 +490,7 @@ export default function App() {
       </section>
 
       {/* Offers Section */}
-      <section id="oferta" className="section-pad py-16 md:py-24 bg-white">
+      <section id="oferta" className="section-pad py-16 md:py-24 bg-white cv-auto">
         <div className="mx-auto max-w-4xl">
           <h2 id="offers-title" className="text-center text-xl md:text-3xl font-bold tracking-tight text-brand-text-main leading-tight">
             Escolha a melhor opção para sua família
@@ -563,7 +595,7 @@ export default function App() {
       </section>
 
       {/* Warranty Section */}
-      <section id="warranty-section" className="bg-brand-bg-alt section-pad py-16 md:py-24 border-t border-b border-brand-border">
+      <section id="warranty-section" className="bg-brand-bg-alt section-pad py-16 md:py-24 border-t border-b border-brand-border cv-auto">
         <div className="mx-auto max-w-3xl text-center">
           
           {/* Giant Number 7 Badge in deep blue */}
@@ -581,7 +613,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq-section" className="section-pad py-16 md:py-24 bg-white">
+      <section id="faq-section" className="section-pad py-16 md:py-24 bg-white cv-auto">
         <div className="mx-auto max-w-2xl">
           <h2 id="faq-title" className="text-center text-xl md:text-3xl font-bold tracking-tight text-brand-text-main mb-10">
             Perguntas frequentes
