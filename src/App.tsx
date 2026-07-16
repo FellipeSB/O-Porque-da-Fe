@@ -268,7 +268,7 @@ export default function App() {
           </h2>
 
           <p id="modules-subtitle" className="mt-3 text-center text-brand-text-sub text-sm sm:text-base max-w-2xl mx-auto">
-            Você não precisa improvisar perguntas, pesquisar respostas ou preparar estudos do zero.
+            Um método completo de 52 semanas, dividido em etapas progressivas, para ajudar seus filhos a compreender, questionar e aplicar a fé em situações reais.
           </p>
           
           <div id="modules-grid" className="mt-10 space-y-8 max-w-2xl mx-auto">
@@ -295,9 +295,62 @@ export default function App() {
               
               <div id="module-collapse-1" className={`grid transition-all duration-300 ease-in-out ${activeModule === 1 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
-                  <p className="text-sm sm:text-base text-brand-text-sub leading-relaxed pt-2">
-                    Ajude seu filho a compreender quem é Deus, o que significa ter fé e por que a crença cristã não precisa ser baseada apenas em repetição ou tradição.
-                  </p>
+                  <div className="pt-2 text-sm sm:text-base text-brand-text-sub space-y-4">
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Este módulo conduz seu filho pelos fundamentos que sustentam uma fé consciente, compreendida e capaz de crescer com ele.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Durante as primeiras semanas, vocês conversarão sobre quem é Deus, por que acreditamos em Sua existência, o significado da criação, o que realmente é ter fé e por que acreditar não significa deixar de pensar.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      O conteúdo também apresenta temas essenciais como confiança na Bíblia, identidade de Jesus, importância da oração e vida em comunidade.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Seu filho não receberá apenas respostas prontas. Ele será guiado por perguntas, reflexões e aplicações que o ajudarão a construir convicções próprias.
+                    </p>
+                    
+                    <div className="pt-2 border-t border-brand-border/40">
+                      <span className="font-bold text-brand-text-main text-xs uppercase tracking-wider block mb-2">O que será trabalhado:</span>
+                      <ul className="space-y-2 text-sm text-brand-text-sub">
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Quem é Deus e por que a fé importa</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Por que acreditamos que Deus existe</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Fé, razão, criação e propósito</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como confiar na Bíblia</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Quem é Jesus e por que Ele é importante</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como desenvolver uma vida de oração</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Perguntas abertas para estimular o raciocínio</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Aplicações simples para a rotina familiar</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="mt-4 p-4 rounded-lg bg-white border border-brand-border/60 text-center italic text-brand-text-main font-medium text-xs sm:text-sm">
+                      "Uma base sólida para que seu filho não apenas repita o que ouviu, mas compreenda no que acredita."
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -324,9 +377,66 @@ export default function App() {
               
               <div id="module-collapse-2" className={`grid transition-all duration-300 ease-in-out ${activeModule === 2 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
-                  <p className="text-sm sm:text-base text-brand-text-sub leading-relaxed pt-2">
-                    Conduza conversas sobre dúvidas, sofrimento, criação, Bíblia, oração e outras questões que crianças e pré-adolescentes começam a enfrentar.
-                  </p>
+                  <div className="pt-2 text-sm sm:text-base text-brand-text-sub space-y-4">
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Neste módulo, seu filho encontrará um espaço seguro para conversar sobre dúvidas que muitas crianças sentem, mas nem sempre têm coragem de perguntar.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Vocês serão guiados por temas como sofrimento, orações que parecem não ser respondidas, tristeza, dúvidas sobre Deus, ciência, Bíblia, ressurreição e diferenças de crença.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      O material ajuda os pais a responder sem transformar a conversa em sermão, julgamento ou discussão.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      O objetivo não é eliminar todas as dúvidas em uma única conversa, mas ensinar seu filho a perguntar, refletir e buscar respostas com segurança.
+                    </p>
+                    
+                    <div className="pt-2 border-t border-brand-border/40">
+                      <span className="font-bold text-brand-text-main text-xs uppercase tracking-wider block mb-2">O que será trabalhado:</span>
+                      <ul className="space-y-2 text-sm text-brand-text-sub">
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Por que existe sofrimento</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Por que algumas orações parecem não ser respondidas</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como perceber a presença de Deus em momentos difíceis</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Por que sentir dúvida não significa perder a fé</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>A relação entre ciência e fé</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como sabemos que Jesus existiu</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Por que os cristãos acreditam na ressurreição</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como entender passagens difíceis da Bíblia</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como conversar com quem pensa diferente</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="mt-4 p-4 rounded-lg bg-white border border-brand-border/60 text-center italic text-brand-text-main font-medium text-xs sm:text-sm">
+                      "Quanto mais seguro seu filho se sente para perguntar dentro de casa, menos dependerá de respostas aleatórias encontradas fora dela."
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -353,14 +463,100 @@ export default function App() {
               
               <div id="module-collapse-3" className={`grid transition-all duration-300 ease-in-out ${activeModule === 3 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
-                  <p className="text-sm sm:text-base text-brand-text-sub leading-relaxed pt-2">
-                    Transforme o aprendizado em escolhas, atitudes e conversas práticas para a escola, internet, amizades, família e rotina diária.
-                  </p>
+                  <div className="pt-2 text-sm sm:text-base text-brand-text-sub space-y-4">
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Este módulo mostra como transformar conhecimento bíblico em decisões, atitudes e convicções para a vida real.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Seu filho será conduzido por temas ligados à identidade, comparação, amizades, pressão do grupo, internet, honestidade, coragem, medo, ansiedade, raiva, bullying, gratidão, serviço, justiça e propósito.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      As últimas etapas do método também ajudam a preparar crianças e pré-adolescentes para a chegada da adolescência, quando surgem novas influências, escolhas e questionamentos.
+                    </p>
+                    <p className="leading-relaxed text-brand-text-sub">
+                      Cada semana conecta fé e cotidiano por meio de conversas, atividades e desafios simples de aplicar.
+                    </p>
+                    
+                    <div className="pt-2 border-t border-brand-border/40">
+                      <span className="font-bold text-brand-text-main text-xs uppercase tracking-wider block mb-2">O que será trabalhado:</span>
+                      <ul className="space-y-2 text-sm text-brand-text-sub">
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Identidade e valor pessoal</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Comparação e necessidade de aprovação</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como escolher boas amizades</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Pressão do grupo e coragem para dizer não</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Internet, redes sociais e discernimento</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Verdade, perdão e limites saudáveis</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Medo, ansiedade, raiva e conflitos</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Bullying e situações difíceis</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Gratidão, serviço, justiça e compaixão</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Autonomia, propósito e decisões</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como lidar com críticas à fé</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-orange font-bold">✓</span>
+                          <span>Como construir convicções pessoais</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="mt-4 p-4 rounded-lg bg-white border border-brand-border/60 text-center italic text-brand-text-main font-medium text-xs sm:text-sm">
+                      "Uma fé que não fica apenas no papel, mas acompanha seu filho na escola, nas amizades, na internet e nas decisões que ele começa a tomar."
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
           </div>
+
+          {/* Block Immediately After Module 3 */}
+          <div id="modules-summary-highlight" className="mt-12 bg-brand-bg-alt rounded-2xl p-6 sm:p-8 border border-brand-border text-left space-y-4 max-w-2xl mx-auto shadow-sm">
+            <h4 className="font-bold text-base sm:text-lg text-brand-text-main">
+              E isso é apenas um breve resumo do que você vai receber
+            </h4>
+            <p className="text-sm sm:text-base text-brand-text-sub leading-relaxed">
+              O método completo é dividido em <strong>5 e-books, 52 semanas de estudos, 10 submódulos progressivos</strong>, perguntas guiadas, atividades práticas, desafios semanais, aplicações para a vida real, orientações para os pais e espaços de reflexão em família.
+            </p>
+            <p className="text-sm sm:text-base text-brand-text-sub leading-relaxed">
+              Você não receberá apenas informações sobre fé. Receberá uma jornada estruturada para conduzir seus filhos passo a passo, da compreensão dos fundamentos até as decisões, dúvidas e pressões que surgem com o crescimento.
+            </p>
+            <div className="mt-4 pt-4 border-t border-brand-border text-center italic text-brand-orange font-bold text-sm sm:text-base">
+              Tudo pronto para você abrir, seguir e aplicar em apenas 17 minutos por dia.
+            </div>
+          </div>
+
         </div>
       </section>
 
