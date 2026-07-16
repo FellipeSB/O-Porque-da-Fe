@@ -224,3 +224,32 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Performance Optimizations: content-visibility for heavy below-the-fold sections */
+.cv-auto {
+  content-visibility: auto;
+}
+
+#testimonials-section {
+  contain-intrinsic-size: auto 650px;
+}
+
+#modules-section {
+  contain-intrinsic-size: auto 1200px;
+}
+
+#bonuses-section {
+  contain-intrinsic-size: auto 1500px;
+}
+
+#oferta {
+  contain-intrinsic-size: auto 900px;
+}
+
+#warranty-section {
+  contain-intrinsic-size: auto 350px;
+}
+
+#faq-section {
+  contain-intrinsic-size: auto 600px;
+}
