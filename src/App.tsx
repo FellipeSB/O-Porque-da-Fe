@@ -21,28 +21,18 @@ function ScrollAspectImage({ id, src, alt }: ScrollAspectImageProps) {
 
   return (
     <div className="w-full overflow-hidden rounded-lg select-none">
-      <picture>
-        <source
-          type="image/avif"
-          srcSet={`${baseName}-400.avif 400w, ${baseName}-800.avif 800w`}
-          sizes="(max-width: 640px) 100vw, 400px"
-        />
-        <source
-          type="image/webp"
-          srcSet={`${baseName}-400.webp 400w, ${baseName}-800.webp 800w`}
-          sizes="(max-width: 640px) 100vw, 400px"
-        />
-        <img
-          id={id}
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          width="400"
-          height="400"
-          className="w-full aspect-square object-cover rounded-lg shadow-sm border border-brand-border"
-        />
-      </picture>
+      <img
+        id={id}
+        src={src}
+        srcSet={`${baseName}-400.webp 400w, ${baseName}-800.webp 800w`}
+        sizes="(max-width: 640px) 100vw, 400px"
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        width="400"
+        height="400"
+        className="w-full aspect-square object-cover rounded-lg shadow-sm border border-brand-border block"
+      />
     </div>
   );
 }
@@ -189,29 +179,19 @@ export default function App() {
       <section id="hero-section" className="section-pad py-16 md:py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-5xl flex flex-col items-center text-center">
           
-          {/* Main Hero Product Mockup - Fully Optimized with WebP and AVIF Responsive srcset */}
-          <picture className="w-full max-w-[580px] mb-8 block select-none">
-            <source
-              type="image/avif"
-              srcSet="/images/hero-480.avif 480w, /images/hero-768.avif 768w, /images/hero-1200.avif 1200w, /images/hero-1672.avif 1672w"
-              sizes="(max-width: 640px) 100vw, 580px"
-            />
-            <source
-              type="image/webp"
-              srcSet="/images/hero-480.webp 480w, /images/hero-768.webp 768w, /images/hero-1200.webp 1200w, /images/hero-1672.webp 1672w"
-              sizes="(max-width: 640px) 100vw, 580px"
-            />
-            <img 
-              id="hero-mockup"
-              src="/images/hero-fallback.jpg" 
-              alt="Mockups do Produto Descobrindo o Porquê da Fé" 
-              fetchPriority="high"
-              decoding="sync"
-              width="580"
-              height="326"
-              className="w-full h-auto object-cover rounded-xl shadow-md hover:scale-[1.01] transition-transform duration-500"
-            />
-          </picture>
+          {/* Main Hero Product Mockup - Fully Optimized with WebP Responsive srcset */}
+          <img 
+            id="hero-mockup"
+            src="/images/hero.jpg" 
+            srcSet="/images/hero-480.webp 480w, /images/hero-768.webp 768w, /images/hero-1200.webp 1200w, /images/hero-1672.webp 1672w"
+            sizes="(max-width: 640px) 100vw, 580px"
+            alt="Mockups do Produto Descobrindo o Porquê da Fé" 
+            fetchPriority="high"
+            decoding="sync"
+            width="580"
+            height="326"
+            className="w-full max-w-[580px] h-auto object-cover rounded-xl shadow-md mb-8 select-none"
+          />
           
           {/* Main Headline */}
           <h1 id="hero-headline" className="text-3xl md:text-5xl font-display font-bold leading-tight tracking-tight text-brand-text-main max-w-4xl">
@@ -252,27 +232,17 @@ export default function App() {
                   id={`testimonial-card-1-${num}`}
                   className="rounded-xl flex items-center justify-center shrink-0 shadow-sm overflow-hidden"
                 >
-                  <picture>
-                    <source
-                      type="image/avif"
-                      srcSet={`/images/depoimento${num}-320.avif 320w, /images/depoimento${num}-640.avif 640w`}
-                      sizes="(max-width: 640px) 260px, 320px"
-                    />
-                    <source
-                      type="image/webp"
-                      srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
-                      sizes="(max-width: 640px) 260px, 320px"
-                    />
-                    <img 
-                      src={`/images/depoimento${num}.jpg`} 
-                      alt={`Depoimento ${num}`} 
-                      loading="lazy"
-                      decoding="async"
-                      width="320"
-                      height="480"
-                      className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
-                    />
-                  </picture>
+                  <img 
+                    src={`/images/depoimento${num}.jpg`} 
+                    srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
+                    sizes="(max-width: 640px) 260px, 320px"
+                    alt={`Depoimento ${num}`} 
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="480"
+                    className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border block"
+                  />
                 </div>
               ))}
 
@@ -283,27 +253,17 @@ export default function App() {
                   id={`testimonial-card-2-${num}`}
                   className="rounded-xl flex items-center justify-center shrink-0 shadow-sm overflow-hidden"
                 >
-                  <picture>
-                    <source
-                      type="image/avif"
-                      srcSet={`/images/depoimento${num}-320.avif 320w, /images/depoimento${num}-640.avif 640w`}
-                      sizes="(max-width: 640px) 260px, 320px"
-                    />
-                    <source
-                      type="image/webp"
-                      srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
-                      sizes="(max-width: 640px) 260px, 320px"
-                    />
-                    <img 
-                      src={`/images/depoimento${num}.jpg`} 
-                      alt={`Depoimento ${num}`} 
-                      loading="lazy"
-                      decoding="async"
-                      width="320"
-                      height="480"
-                      className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border"
-                    />
-                  </picture>
+                  <img 
+                    src={`/images/depoimento${num}.jpg`} 
+                    srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
+                    sizes="(max-width: 640px) 260px, 320px"
+                    alt={`Depoimento ${num}`} 
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="480"
+                    className="w-[260px] sm:w-[320px] aspect-[2/3] object-cover rounded-xl border border-brand-border block"
+                  />
                 </div>
               ))}
             </div>
