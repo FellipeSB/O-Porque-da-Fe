@@ -16,16 +16,11 @@ interface ScrollAspectImageProps {
 }
 
 function ScrollAspectImage({ id, src, alt }: ScrollAspectImageProps) {
-  // Construct optimized paths
-  const baseName = src.substring(0, src.lastIndexOf('.'));
-
   return (
     <div className="w-full overflow-hidden rounded-lg select-none">
       <img
         id={id}
         src={src}
-        srcSet={`${baseName}-400.webp 400w, ${baseName}-800.webp 800w`}
-        sizes="(max-width: 640px) 100vw, 400px"
         alt={alt}
         loading="lazy"
         decoding="async"
@@ -179,12 +174,10 @@ export default function App() {
       <section id="hero-section" className="section-pad py-16 md:py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-5xl flex flex-col items-center text-center">
           
-          {/* Main Hero Product Mockup - Fully Optimized with WebP Responsive srcset */}
+          {/* Main Hero Product Mockup */}
           <img 
             id="hero-mockup"
             src="/images/hero.jpg" 
-            srcSet="/images/hero-480.webp 480w, /images/hero-768.webp 768w, /images/hero-1200.webp 1200w, /images/hero-1672.webp 1672w"
-            sizes="(max-width: 640px) 100vw, 580px"
             alt="Mockups do Produto Descobrindo o Porquê da Fé" 
             fetchPriority="high"
             decoding="sync"
@@ -234,8 +227,6 @@ export default function App() {
                 >
                   <img 
                     src={`/images/depoimento${num}.jpg`} 
-                    srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
-                    sizes="(max-width: 640px) 260px, 320px"
                     alt={`Depoimento ${num}`} 
                     loading="lazy"
                     decoding="async"
@@ -255,8 +246,6 @@ export default function App() {
                 >
                   <img 
                     src={`/images/depoimento${num}.jpg`} 
-                    srcSet={`/images/depoimento${num}-320.webp 320w, /images/depoimento${num}-640.webp 640w`}
-                    sizes="(max-width: 640px) 260px, 320px"
                     alt={`Depoimento ${num}`} 
                     loading="lazy"
                     decoding="async"
