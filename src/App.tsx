@@ -1,13 +1,4 @@
-import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
-import { 
-  Plus,
-  X, 
-  QrCode, 
-  Check, 
-  Copy, 
-  CheckCircle2, 
-  AlertCircle 
-} from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface ScrollAspectImageProps {
   id: string;
@@ -103,7 +94,10 @@ export default function App() {
           
           {/* Success Check Badge */}
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand-green/15 text-brand-green mb-6 animate-pulse">
-            <CheckCircle2 className="size-10" />
+            <svg className="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
           </div>
           
           <span className="text-xs font-bold text-brand-orange uppercase tracking-wider select-none">
@@ -183,7 +177,7 @@ export default function App() {
             decoding="sync"
             width="580"
             height="326"
-            className="w-full max-w-[580px] h-auto object-cover rounded-xl shadow-md mb-8 select-none"
+            className="w-full max-w-[580px] h-auto object-cover rounded-xl shadow-md select-none block mx-auto mb-8"
           />
           
           {/* Main Headline */}
@@ -217,7 +211,7 @@ export default function App() {
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-brand-bg-alt to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-brand-bg-alt to-transparent z-10 pointer-events-none"></div>
 
-            <div className="flex w-max gap-6 py-4 animate-marquee select-none">
+             <div className="flex w-max gap-6 py-4 animate-marquee select-none">
               {/* First half of items */}
               {[2, 3, 4, 5, 6, 7, 8].map((num) => (
                 <div 
@@ -290,7 +284,10 @@ export default function App() {
                 className="mt-4 flex w-full items-center justify-between gap-4 rounded-lg border border-brand-border bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-brand-text-main hover:bg-brand-bg-alt transition-colors cursor-pointer"
               >
                 <span>CLIQUE PARA VER O CONTEÚDO</span>
-                <Plus className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 1 ? "rotate-45" : ""}`} />
+                <svg className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 1 ? "rotate-45" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               
               <div id="module-collapse-1" className={`grid transition-all duration-300 ease-in-out ${activeModule === 1 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
@@ -372,7 +369,10 @@ export default function App() {
                 className="mt-4 flex w-full items-center justify-between gap-4 rounded-lg border border-brand-border bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-brand-text-main hover:bg-brand-bg-alt transition-colors cursor-pointer"
               >
                 <span>CLIQUE PARA VER O CONTEÚDO</span>
-                <Plus className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 2 ? "rotate-45" : ""}`} />
+                <svg className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 2 ? "rotate-45" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               
               <div id="module-collapse-2" className={`grid transition-all duration-300 ease-in-out ${activeModule === 2 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
@@ -458,7 +458,10 @@ export default function App() {
                 className="mt-4 flex w-full items-center justify-between gap-4 rounded-lg border border-brand-border bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-brand-text-main hover:bg-brand-bg-alt transition-colors cursor-pointer"
               >
                 <span>CLIQUE PARA VER O CONTEÚDO</span>
-                <Plus className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 3 ? "rotate-45" : ""}`} />
+                <svg className={`size-4 text-brand-text-main transition-transform duration-300 ${activeModule === 3 ? "rotate-45" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               
               <div id="module-collapse-3" className={`grid transition-all duration-300 ease-in-out ${activeModule === 3 ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"}`}>
@@ -824,7 +827,11 @@ export default function App() {
             
             {/* Header Alert Banner */}
             <div className="bg-brand-orange p-3 text-center text-xs font-bold uppercase tracking-widest text-white flex items-center justify-center gap-1.5 select-none">
-              <AlertCircle className="size-4 animate-bounce shrink-0" />
+              <svg className="size-4 animate-bounce shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
               <span>OPORTUNIDADE ÚNICA!</span>
             </div>
 
@@ -833,7 +840,10 @@ export default function App() {
               className="absolute top-10 right-4 p-1.5 rounded-full hover:bg-brand-bg-alt transition-colors cursor-pointer text-brand-text-sub"
               aria-label="Fechar"
             >
-              <X className="size-4" />
+              <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
             </button>
 
             <div className="p-6 text-center">
