@@ -16,8 +16,10 @@ export default defineConfig(({ mode }) => {
       sourcemap: false,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
           },
         },
       },

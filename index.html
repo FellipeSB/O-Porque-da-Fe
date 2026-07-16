@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Descobrindo o Porquê da Fé - Guia Digital para Pais Cristãos</title>
     
+    <!-- JSON.stringify Cyclic Structure Safety Patch -->
+    <script>
+      (function() {
+        var originalStringify = JSON.stringify;
+        JSON.stringify = function(value, replacer, space) {
+          var seen = new WeakSet();
+          var safeReplacer = function(key, val) {
+            if (typeof val === 'object' && val !== null) {
+              if (seen.has(val)) {
+                return "[Circular]";
+              }
+              seen.add(val);
+            }
+            if (replacer) {
+              return replacer(key, val);
+            }
+            return val;
+          };
+          try {
+            return originalStringify(value, replacer || safeReplacer, space);
+          } catch (e) {
+            try {
+              return originalStringify(value, safeReplacer, space);
+            } catch (err) {
+              return '"[Unserializable]"';
+            }
+          }
+        };
+      })();
+    </script>
+    
     <!-- Preconnect to external resource origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Parallel load fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Preload critical LCP Image for maximum speed -->
     <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
